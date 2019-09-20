@@ -409,6 +409,13 @@ if (BUILD_STATIC_LIB)
           COMPILE_FLAGS
             "-DLIBSSH_STATIC"
     )
+
+    set_target_properties(
+      ${LIBSSH_STATIC_LIBRARY}
+        PROPERTIES
+          MSVC_RUNTIME_LIBRARY
+            "MultiThreaded$<$<CONFIG:Debug>:Debug>"
+    )
   endif (WIN32)
 endif (BUILD_STATIC_LIB)
 
